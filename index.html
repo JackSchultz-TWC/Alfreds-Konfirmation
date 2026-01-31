@@ -4,27 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Alfreds Konfirmation</title>
-  <!-- Valgfri Google Font:
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Lille inline-styling for at sikre, at placeholderen opfører sig pænt hvis du ikke har styles i style.css -->
-  <style>
-    .hero { margin-top: 1rem; }
-    .hero-img { display:block; width:100%; height:auto; border-radius:8px; }
-    .sr-only {
-      position: absolute !important;
-      width: 1px !important;
-      height: 1px !important;
-      padding: 0 !important;
-      margin: -1px !important;
-      overflow: hidden !important;
-      clip: rect(0,0,0,0) !important;
-      white-space: nowrap !important;
-      border: 0 !important;
-    }
-  </style>
+  <link rel="stylesheet" href="style-improved.css">
 </head>
 <body>
   <header class="site-header" role="banner">
@@ -33,78 +13,79 @@
       <p class="lead">11. april 2026 — Vi glæder os til at fejre sammen</p>
     </div>
 
-    <!-- Placeholder-billede -->
-   <figure class="hero">
-  <img
-    class="hero-img"
-    src="images/alfred.JPG"
-    alt="Alfreds Konfirmation"
-    loading="lazy"
-    width="1200"
-    height="300"
-  >
-  <figcaption class="sr-only">Alfreds Konfirmation — billede</figcaption>
-</figure>
+    <figure class="hero" aria-hidden="true">
+      <img class="hero-img" src="images/alfred.JPG" alt="Alfred" width="1200" height="300" loading="lazy">
+      <figcaption class="sr-only">Alfreds Konfirmation — billede</figcaption>
+    </figure>
   </header>
 
- <section class="card">
-  <h2>Kirkeservice</h2>
+  <main class="container" id="main">
+    <div class="main-grid">
 
-  <div class="event-grid">
-    <div class="event-row" aria-labelledby="event1-desc">
-      <div class="event-time" aria-hidden="true">
-        <svg class="icon-clock" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-          <path fill="currentColor" d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1zm1 6h-2v6l5 3 .9-1.6-4-2.4V7z"/>
-        </svg>
-        <span class="time-label">Kl.<br>10:00</span>
-      </div>
-      <div class="event-details" id="event1-desc">
-        <p class="meta">Alle er velkomne i kirken. Men er også velkommen til at komme til festen direkte.</p>
-        <p class="venue">Haslev Kirke — Kirkepladsen 8B, 4690 Haslev</p>
-      </div>
-    </div>
+      <!-- Venstre kolonne: hovedindhold -->
+      <section class="card" aria-labelledby="kirkeservice-title">
+        <h2 id="kirkeservice-title">Kirkeservice</h2>
 
-    <div class="event-row" aria-labelledby="event2-desc">
-      <div class="event-time" aria-hidden="true">
-        <svg class="icon-clock" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-          <path fill="currentColor" d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1zm1 6h-2v6l5 3 .9-1.6-4-2.4V7z"/>
-        </svg>
-        <span class="time-label">Kl.<br>13:30</span>
-      </div>
-      <div class="event-details" id="event2-desc">
-        <h3>Frokost & fest</h3>
-        <p class="meta">Langager – "Stalden". Dresscode: (varmt)tøj der matcher årstiden.</p>
-        <p class="small">Tematik: rustikt genbrugs‑tema — buffet & langborde</p>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="event-grid" role="list">
+          <article class="event-row" role="listitem" aria-labelledby="event1-title">
+            <div class="event-time" aria-hidden="true">
+              <svg class="icon-clock" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1zm1 6h-2v6l5 3 .9-1.6-4-2.4V7z"/>
+              </svg>
+              <span class="time-badge"><span class="sr-only">Tid:</span>Kl. <strong>10:00</strong></span>
+            </div>
+
+            <div class="event-details" id="event1-title">
+              <p class="meta">Alle er velkomne i kirken. Men er også velkommen til at komme til festen direkte.</p>
+              <p class="venue">Haslev Kirke — Kirkepladsen 8B, 4690 Haslev</p>
+            </div>
+          </article>
+
+          <article class="event-row" role="listitem" aria-labelledby="event2-title">
+            <div class="event-time" aria-hidden="true">
+              <svg class="icon-clock" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1zm1 6h-2v6l5 3 .9-1.6-4-2.4V7z"/>
+              </svg>
+              <span class="time-badge"><span class="sr-only">Tid:</span>Kl. <strong>13:30</strong></span>
+            </div>
+
+            <div class="event-details" id="event2-title">
+              <h3>Frokost & fest</h3>
+              <p class="meta">Langager – "Stalden". Dresscode: (varmt)tøj der matcher årstiden.</p>
+              <p class="small">Tematik: rustikt genbrugs‑tema — buffet & langborde</p>
+            </div>
+          </article>
+        </div>
+      </section>
 
       <!-- Højre kolonne: sidekort -->
-      <aside class="card">
-        <h2>Fortæl om du/I kommer</h2>
+      <aside class="card side" aria-labelledby="rsvp-title">
+        <h2 id="rsvp-title">Fortæl om du/I kommer</h2>
         <p class="meta">Vi sætter pris på besked senest 1. april 2026.</p>
-        <p><a class="btn" href="mailto:jacobschultz76£hotmail.com?subject=RSVP%20Alfreds%20Konfirmation">Giv besked via mail</a></p>
 
-        <hr style="border:none;border-top:1px solid rgba(0,0,0,0.04);margin:1rem 0;">
+        <p>
+          <a class="btn-primary" href="mailto:jacobschultz76@hotmail.com?subject=RSVP%20Alfreds%20Konfirmation">Giv besked via mail</a>
+        </p>
 
-        <h2>Alfreds ønskeliste</h2>
+        <hr class="divider">
+
+        <h3>Alfreds ønskeliste</h3>
         <div class="wishlist">
-          <a href="#">Kommer senere </a>
-        
+          <a href="#" class="wishlist-link">Kommer senere</a>
         </div>
 
-        <hr style="border:none;border-top:1px solid rgba(0,0,0,0.04);margin:1rem 0;">
+        <hr class="divider">
 
-        <p class="small">Kontakt: jacobschultz76@hotmail.com Tlf.:23294084(maja) </p>
+        <p class="small contact">Kontakt: <a href="mailto:jacobschultz76@hotmail.com">jacobschultz76@hotmail.com</a><br>Tlf.: 23294084 (Maja)</p>
       </aside>
     </div>
   </main>
-  <section class="bottom-image">
-  <img src="images/alfred2.JPG">
-</section>
 
-  <footer class="site-footer small">
+  <section class="bottom-image" aria-hidden="true">
+    <img src="images/alfred2.JPG" alt="" class="bottom-img" loading="lazy">
+  </section>
+
+  <footer class="site-footer small" role="contentinfo">
     Vi glæder os til at fejre dagen sammen med dig!
   </footer>
 </body>
