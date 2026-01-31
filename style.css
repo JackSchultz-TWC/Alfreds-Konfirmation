@@ -5,86 +5,145 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f1ea; /* En let "rustik" creme-farve */
   color: #333;
+  overflow-x: hidden;
 }
 
 /* HERO SEKTION - Det her styrer toppen */
 .hero-header {
   position: relative;
   width: 100%;
-  height: 450px; /* Højden på dit billede i toppen */
+  height: 450px; 
   overflow: hidden;
+  background: #000;
 }
 
 .hero-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* VIGTIG: Gør at billedet ikke bliver mast */
-  object-position: center 20%; /* Justerer hvor billedet fokuserer */
+  object-fit: cover; 
+  object-position: center 20%;
+  display: block;
 }
 
 .hero-text {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.7)); /* Gør tekst læsbar */
+  inset: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.6));
   color: white;
-  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
   text-align: center;
+  z-index: 2;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.hero-lead {
+  margin: 10px 0 0 0;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
 /* LAYOUT GRID */
 .main-container {
   max-width: 1100px;
-  margin: -40px auto 40px; /* Trækker indholdet lidt op over hero'en */
+  margin: 40px auto; 
   padding: 0 20px;
-  position: relative;
 }
 
 .layout-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Standard: 1 kolonne (mobil) */
+  grid-template-columns: 2fr 1fr; /* To kolonner på computer */
+  gap: 25px;
+  align-items: start;
+}
+
+/* KORT DESIGN */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.time-badge {
+  background: #8b5e3c; /* Varm rustik brun */
+  color: white;
+  padding: 6px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.event-row {
+  display: flex;
   gap: 20px;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
 }
 
-/* Mindre devices: her tilpasser vi hero-højden i stedet for at slette billedet */
-@media (max-width: 720px){
-  .hero { 
-    height: 250px; /* Billedet bliver lidt lavere på mobilen så det passer til skærmen */
-  }
-  .brand-wrap { 
-    padding: 0.5rem; 
-  }
-  .hero-title { 
-    font-size: 1.4rem; /* Teksten bliver lidt mindre så den ikke fylder det hele */
-  }
-  .hero-lead { 
-    font-size: 0.9rem; 
-  }
+.btn-primary {
+  display: block;
+  text-align: center;
+  background: #8b5e3c;
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin: 15px 0;
 }
 
-/* Main grid (to kolonner bliver til én på mobilen) */
+.wishlist-link {
+  display: inline-block;
+  color: #8b5e3c;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 5px 0;
+}
+
+.bottom-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-top: 30px;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 40px;
+  color: #7d6b63;
+}
+
+.divider { border: 0; border-top: 1px solid #eee; margin: 15px 0; }
+.small { font-size: 0.9rem; color: #7d6b63; }
+
+/* RESPONSIVE TILPASNINGER */
+
+/* Tablet og mindre */
 @media (max-width: 900px){
-  .main-grid {
-    grid-template-columns: 1fr;
-  }
-  /* Vi har fjernet display:none herfra! */
-  .card { 
-    padding: 1rem; 
-  }
-  .event-row { 
-    grid-template-columns: 72px 1fr; 
-    gap: 0.75rem; 
+  .layout-grid {
+    grid-template-columns: 1fr; /* En kolonne på små skærme */
   }
 }
 
-@media (max-width: 520px){
-  .event-row { 
-    grid-template-columns: 1fr; 
-    text-align: center;
+/* Mobil */
+@media (max-width: 720px){
+  .hero-header { height: 280px; } /* Hero bliver lavere på mobilen */
+  
+  .event-row {
+    flex-direction: column;
+    gap: 10px;
   }
-  .event-time { 
-    flex-direction: row; 
-    justify-content: center; 
+  
+  .time-badge {
+    align-self: flex-start;
   }
 }
