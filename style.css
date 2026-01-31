@@ -47,55 +47,44 @@ body {
   gap: 20px;
 }
 
-@media (min-width: 800px) {
-  .layout-grid {
-    grid-template-columns: 2fr 1fr; /* Computer: 2 kolonner */
+/* Mindre devices: her tilpasser vi hero-højden i stedet for at slette billedet */
+@media (max-width: 720px){
+  .hero { 
+    height: 250px; /* Billedet bliver lidt lavere på mobilen så det passer til skærmen */
+  }
+  .brand-wrap { 
+    padding: 0.5rem; 
+  }
+  .hero-title { 
+    font-size: 1.4rem; /* Teksten bliver lidt mindre så den ikke fylder det hele */
+  }
+  .hero-lead { 
+    font-size: 0.9rem; 
   }
 }
 
-/* KORT DESIGN */
-.card {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+/* Main grid (to kolonner bliver til én på mobilen) */
+@media (max-width: 900px){
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+  /* Vi har fjernet display:none herfra! */
+  .card { 
+    padding: 1rem; 
+  }
+  .event-row { 
+    grid-template-columns: 72px 1fr; 
+    gap: 0.75rem; 
+  }
 }
 
-.time-badge {
-  background: #6b705c; /* Rustik grøn */
-  color: white;
-  padding: 5px 12px;
-  border-radius: 20px;
-  display: inline-block;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.btn-primary {
-  display: block;
-  text-align: center;
-  background: #a98467; /* Brunlig rustik tone */
-  color: white;
-  text-decoration: none;
-  padding: 12px;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.btn-primary:hover {
-  background: #6b705c;
-}
-
-.event-row {
-  margin-bottom: 30px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 20px;
-}
-
-.site-footer {
-  text-align: center;
-  padding: 40px;
-  color: #666;
-  font-style: italic;
+@media (max-width: 520px){
+  .event-row { 
+    grid-template-columns: 1fr; 
+    text-align: center;
+  }
+  .event-time { 
+    flex-direction: row; 
+    justify-content: center; 
+  }
 }
