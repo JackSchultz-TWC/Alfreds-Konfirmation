@@ -1,92 +1,228 @@
-<!doctype html>
-<html lang="da">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Alfreds Konfirmation</title>
-  <link rel="stylesheet" href="style-improved.css">
-</head>
-<body>
-  <header class="site-header" role="banner">
-    <div class="site-brand">
-      <h1>Alfreds Konfirmation</h1>
-      <p class="lead">11. april 2026 — Vi glæder os til at fejre sammen</p>
-    </div>
+:root{
+  --bg: #fbf7f4;
+  --card-bg: #fff;
+  --accent: #8b5e3c; /* varm brun accent */
+  --muted: #7d6b63;
+  --text: #3d2f2a;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(45,32,26,0.06);
+  --gap: 1.25rem;
+  --max-width: 1100px;
+  --container-padding: 1rem;
+  --card-padding: 1.25rem;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
 
-    <figure class="hero" aria-hidden="true">
-      <img class="hero-img" src="images/alfred.JPG" alt="Alfred" width="1200" height="300" loading="lazy">
-      <figcaption class="sr-only">Alfreds Konfirmation — billede</figcaption>
-    </figure>
-  </header>
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background: linear-gradient(180deg, #fdfbf9 0%, #fbf7f4 60%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+  padding: 2rem 0;
+}
 
-  <main class="container" id="main">
-    <div class="main-grid">
+/* Layout container */
+.container{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
 
-      <!-- Venstre kolonne: hovedindhold -->
-      <section class="card" aria-labelledby="kirkeservice-title">
-        <h2 id="kirkeservice-title">Kirkeservice</h2>
+/* Header */
+.site-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:1.25rem;
+  padding:0 var(--container-padding);
+}
+.site-brand h1{
+  margin:0;
+  font-size:1.6rem;
+  letter-spacing: -0.02em;
+  color:var(--accent);
+  font-weight:700;
+}
+.lead{
+  margin: .25rem 0 0 0;
+  color:var(--muted);
+  font-size:0.95rem;
+}
 
-        <div class="event-grid" role="list">
-          <article class="event-row" role="listitem" aria-labelledby="event1-title">
-            <div class="event-time" aria-hidden="true">
-              <svg class="icon-clock" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1zm1 6h-2v6l5 3 .9-1.6-4-2.4V7z"/>
-              </svg>
-              <span class="time-badge"><span class="sr-only">Tid:</span>Kl. <strong>10:00</strong></span>
-            </div>
+/* Hero */
+.hero-img{
+  width:420px;
+  max-width:35vw;
+  height:auto;
+  border-radius: 12px;
+  object-fit:cover;
+  display:block;
+}
 
-            <div class="event-details" id="event1-title">
-              <p class="meta">Alle er velkomne i kirken. Men er også velkommen til at komme til festen direkte.</p>
-              <p class="venue">Haslev Kirke — Kirkepladsen 8B, 4690 Haslev</p>
-            </div>
-          </article>
+/* Main grid (two columns) */
+.main-grid{
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.25rem;
+  align-items:start;
+}
 
-          <article class="event-row" role="listitem" aria-labelledby="event2-title">
-            <div class="event-time" aria-hidden="true">
-              <svg class="icon-clock" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1zm1 6h-2v6l5 3 .9-1.6-4-2.4V7z"/>
-              </svg>
-              <span class="time-badge"><span class="sr-only">Tid:</span>Kl. <strong>13:30</strong></span>
-            </div>
+/* Card style */
+.card{
+  background:var(--card-bg);
+  border-radius: var(--radius);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow);
+  border-left: 6px solid rgba(139,94,60,0.12);
+}
 
-            <div class="event-details" id="event2-title">
-              <h3>Frokost & fest</h3>
-              <p class="meta">Langager – "Stalden". Dresscode: (varmt)tøj der matcher årstiden.</p>
-              <p class="small">Tematik: rustikt genbrugs‑tema — buffet & langborde</p>
-            </div>
-          </article>
-        </div>
-      </section>
+/* Side card small adjustments */
+.card.side{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
 
-      <!-- Højre kolonne: sidekort -->
-      <aside class="card side" aria-labelledby="rsvp-title">
-        <h2 id="rsvp-title">Fortæl om du/I kommer</h2>
-        <p class="meta">Vi sætter pris på besked senest 1. april 2026.</p>
+/* Headings */
+.card h2, .card h3{
+  margin:0 0 .6rem 0;
+  color:var(--accent);
+}
 
-        <p>
-          <a class="btn-primary" href="mailto:jacobschultz76@hotmail.com?subject=RSVP%20Alfreds%20Konfirmation">Giv besked via mail</a>
-        </p>
+/* Event grid (rows) */
+.event-grid{
+  display:flex;
+  flex-direction:column;
+  gap: var(--gap);
+  margin-top: .5rem;
+}
 
-        <hr class="divider">
+/* Each event row uses CSS grid: left = time, right = details */
+.event-row{
+  display:grid;
+  grid-template-columns: 92px 1fr;
+  gap: 1rem;
+  align-items:start;
+  padding: .25rem .15rem;
+}
 
-        <h3>Alfreds ønskeliste</h3>
-        <div class="wishlist">
-          <a href="#" class="wishlist-link">Kommer senere</a>
-        </div>
+/* Time / badge column */
+.event-time{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.45rem;
+}
 
-        <hr class="divider">
+.icon-clock{
+  color:var(--accent);
+  opacity:.95;
+}
 
-        <p class="small contact">Kontakt: <a href="mailto:jacobschultz76@hotmail.com">jacobschultz76@hotmail.com</a><br>Tlf.: 23294084 (Maja)</p>
-      </aside>
-    </div>
-  </main>
+.time-badge{
+  display:inline-block;
+  background: linear-gradient(180deg, #fff 0%, #fbf6f3 100%);
+  border-radius:10px;
+  padding:.6rem .55rem;
+  font-weight:700;
+  color:var(--accent);
+  box-shadow: 0 8px 18px rgba(139,94,60,0.06);
+  text-align:center;
+  line-height:1;
+}
 
-  <section class="bottom-image" aria-hidden="true">
-    <img src="images/alfred2.JPG" alt="" class="bottom-img" loading="lazy">
-  </section>
+/* Details column */
+.event-details{
+  color:var(--text);
+  font-size:1rem;
+}
 
-  <footer class="site-footer small" role="contentinfo">
-    Vi glæder os til at fejre dagen sammen med dig!
-  </footer>
-</body>
-</html>
+.meta{
+  color:var(--muted);
+  margin:0 0 .5rem 0;
+}
+
+.venue{
+  margin:0;
+  font-weight:600;
+  color:#53372c;
+}
+
+/* Buttons and links */
+.btn-primary{
+  display:inline-block;
+  text-decoration:none;
+  background:var(--accent);
+  color:#fff;
+  padding:.7rem 1rem;
+  border-radius:10px;
+  font-weight:600;
+  box-shadow: 0 10px 20px rgba(139,94,60,0.12);
+}
+
+/* Wishlist link */
+.wishlist-link{
+  display:inline-block;
+  padding:.45rem .6rem;
+  border-radius:8px;
+  background:#fff7f2;
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* small utilities */
+.small{ font-size:.9rem; color:var(--muted) }
+.contact a{ color:var(--accent); text-decoration:underline; }
+
+/* Divider */
+.divider{
+  border:none;
+  border-top:1px solid rgba(0,0,0,0.04);
+  margin: .6rem 0;
+}
+
+/* Bottom full-width image */
+.bottom-image{
+  margin: 1.25rem 0 0 0;
+  padding: 0 var(--container-padding);
+}
+.bottom-img{
+  width:100%;
+  height:auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(45,32,26,0.04);
+}
+
+/* Accessibility: visually hidden */
+.sr-only{
+  position:absolute !important;
+  width:1px; height:1px;
+  padding:0; margin:-1px; overflow:hidden;
+  clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px){
+  .main-grid{
+    grid-template-columns: 1fr;
+  }
+  .hero-img{ display:none; } /* skjul stort billede på små skærme */
+  .card{ padding:1rem; }
+  .event-row{ grid-template-columns: 72px 1fr; gap:.75rem; }
+  .time-badge{ padding:.45rem .45rem; font-size:.95rem; }
+}
+
+@media (max-width: 520px){
+  body{ padding:1rem 0; }
+  .event-row{ grid-template-columns: 1fr; align-items:center; gap:.6rem; }
+  .event-time{ flex-direction:row; justify-content:flex-start; gap:.6rem; }
+  .time-badge{ padding:.4rem .6rem; }
+  .card{ border-left-width:4px; }
+  .site-header{ flex-direction:column; align-items:flex-start; gap:.5rem; }
+}
