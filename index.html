@@ -8,6 +8,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Lille inline-styling for at sikre, at placeholderen opfører sig pænt hvis du ikke har styles i style.css -->
+  <style>
+    .hero { margin-top: 1rem; }
+    .hero-img { display:block; width:100%; height:auto; border-radius:8px; }
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0,0,0,0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header" role="banner">
@@ -15,6 +32,19 @@
       <h1>Alfreds Konfirmation</h1>
       <p class="lead">11. april 2026 — Vi glæder os til at fejre sammen</p>
     </div>
+
+    <!-- Placeholder-billede -->
+   <figure class="hero">
+  <img
+    class="hero-img"
+    src="images/alfred.jpg"
+    alt="Alfreds Konfirmation"
+    loading="lazy"
+    width="1200"
+    height="300"
+  >
+  <figcaption class="sr-only">Alfreds Konfirmation — billede</figcaption>
+</figure>
   </header>
 
   <main class="container">
