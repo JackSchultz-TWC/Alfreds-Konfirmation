@@ -1,47 +1,188 @@
-/* Grundlayout */
+/* Moderne, responsivt layout til "Alfreds Konfirmation" */
+
+/* Variabler — tilpas nemt farver og spacing her */
+:root{
+  --bg: #faf8f5;
+  --paper: #fffdf9;
+  --muted: #f1ece6;
+  --accent: #5a3e2b;      /* varme brune */
+  --accent-2: #d9cbb5;    /* blød baggrundsfarve */
+  --link: #0b66b3;
+  --text: #2c1b0e;
+  --muted-text: #6b5a51;
+  --radius: 12px;
+  --max-width: 980px;
+  --container-pad: 1.25rem;
+  --shadow: 0 6px 18px rgba(38,30,24,0.06);
+  --glass: rgba(255,255,255,0.6);
+  --gap: 1.25rem;
+  --accent-cta: #9a5b2e;
+}
+
+/* Grund */
+* { box-sizing: border-box; }
+html,body { height:100%; }
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.6;
   margin: 0;
-  padding: 0;
-  background: #faf8f5;
-  color: #333;
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, #fff 100%);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding-bottom: 3rem;
 }
 
-/* Header */
-header {
-  background: #d9cbb5;  /* rustik træ‑farve */
-  color: #2c1b0e;
-  text-align: center;
-  padding: 2rem 1rem;
+/* Konteiner */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem var(--container-pad);
 }
-header h1 { font-size: 2.5rem; margin: 0; }
-header p  { font-size: 1.2rem; margin-top: .5rem; }
 
-/* Sektioner */
-section {
-  max-width: 720px;
-  margin: 2rem auto;
+/* Header / hero */
+header.site-header {
+  background: linear-gradient(180deg, var(--accent-2) 0%, rgba(217,203,181,0.9) 100%);
+  color: var(--text);
+  padding: 2.25rem 1rem;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 1.25rem;
+}
+header .site-brand {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  align-items: center;
+}
+header h1 {
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+header p.lead {
+  margin: 0;
+  color: var(--muted-text);
+  font-size: 1rem;
+}
+
+/* Grid til hovedindhold: kort layout */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+  max-width: var(--max-width);
+  margin: 1.5rem auto;
   padding: 0 1rem;
 }
-section h2 {
-  color: #5a3e2b;
-  border-bottom: 2px solid #e0d5c5;
-  padding-bottom: .3rem;
+
+/* Kort */
+.card {
+  background: var(--paper);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(20,15,10,0.03);
+}
+.card h2 {
+  margin: 0 0 .5rem 0;
+  color: var(--accent);
+  font-size: 1.15rem;
+}
+.card p, .card .meta {
+  color: var(--muted-text);
+  margin: 0.25rem 0;
 }
 
-/* Links */
-a {
-  color: #0066cc;
-  text-decoration: none;
+/* Layout for eventdetaljer */
+.event-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .75rem;
 }
-a:hover { text-decoration: underline; }
+.event-row {
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+}
+.event-time {
+  min-width: 98px;
+  background: linear-gradient(180deg, rgba(90,62,43,0.05), rgba(90,62,43,0.03));
+  color: var(--accent);
+  border-radius: 8px;
+  padding: .5rem;
+  font-weight: 600;
+  text-align: center;
+  font-size: .95rem;
+}
+.event-details {
+  flex: 1;
+}
+
+/* RSVP knap */
+.btn {
+  display: inline-block;
+  padding: .6rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(180deg, var(--accent-cta), #7d4a2a);
+  box-shadow: 0 8px 20px rgba(122,68,38,0.18);
+  border: none;
+  cursor: pointer;
+}
+.btn:focus { outline: 3px solid rgba(154,91,46,0.18); outline-offset: 2px; }
+.btn.secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(90,62,43,0.12);
+  box-shadow: none;
+}
+
+/* Liste / ønskeliste */
+.wishlist {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.wishlist a {
+  background: var(--muted);
+  color: var(--accent);
+  padding: .45rem .65rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .95rem;
+}
 
 /* Footer */
-footer {
-  background: #e0d5c5;
+footer.site-footer {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  background: linear-gradient(180deg,#fff 0%, var(--muted) 100%);
   text-align: center;
-  padding: 1rem;
-  font-size: .9rem;
-  margin-top: 3rem;
+  color: var(--muted-text);
+  border-radius: 10px;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Småjusteringer */
+.small { font-size: .9rem; color: var(--muted-text); }
+.meta { font-size: .95rem; color: var(--muted-text); }
+
+/* Responsivt: to-kolonne på større skærme */
+@media (min-width: 820px) {
+  .main-grid { grid-template-columns: 1fr 360px; gap: 1.5rem; }
+  .event-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Reducer animation for brugere der foretrækker det */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
 }
