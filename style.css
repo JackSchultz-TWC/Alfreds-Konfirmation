@@ -64,6 +64,95 @@ body{
   display:block;
 }
 
+/* Full-bleed hero */
+.hero {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  height: 380px; /* juster efter behov */
+  overflow: hidden;
+  display:block;
+  background: #000; /* fallback */
+}
+
+/* Billedet fylder hele hero */
+.hero-img{
+  width:100%;
+  height:100%;
+  object-fit: cover; /* bevarer proportioner og beskærer ved behov */
+  display:block;
+}
+
+/* Læg et mørkt gradient-overlay for bedre kontrast på teksten */
+.hero::before{
+  content: "";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.12) 60%, rgba(0,0,0,0.18) 100%);
+  pointer-events: none;
+}
+
+/* Container for teksten ovenpå billedet */
+.hero-content{
+  position:absolute;
+  inset:0; /* fylder hele hero */
+  display:flex;
+  align-items:center;
+  justify-content:center; /* centreret; for venstre-justeret brug .hero-content--left */
+  padding: 0 1.25rem;
+  z-index: 2;
+}
+
+/* Venstre bånd-variant */
+.hero-content--left { justify-content:flex-start; }
+
+/* Tekst-styling */
+.brand-wrap{
+  color: #fff;
+  text-align:center;
+  max-width: 1100px;
+  width:100%;
+}
+
+/* Hvis du vil have et rummeligt bånd omkring teksten */
+.hero-content--left .brand-wrap{
+  background: rgba(255,255,255,0.06); /* svagt lys bånd */
+  padding: .8rem 1rem;
+  border-radius: 10px;
+  margin-left: 1rem;
+  text-align:left;
+}
+
+/* H1/H2 i hero */
+.hero-title{
+  margin:0;
+  font-size: clamp(1.6rem, 2.6vw, 2.6rem);
+  color: #fff;
+  letter-spacing: -0.01em;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.55);
+  font-weight:700;
+}
+.hero-lead{
+  margin:.35rem 0 0 0;
+  color: rgba(255,255,255,0.92);
+  font-size: clamp(.95rem, 1.6vw, 1.05rem);
+  text-shadow: 0 4px 12px rgba(0,0,0,0.45);
+}
+
+/* Mindre devices: lav hero kortere og tekst mindre */
+@media (max-width: 720px){
+  .hero { height: 220px; }
+  .brand-wrap { padding: .5rem; }
+  .hero-title { font-size: 1.25rem; }
+  .hero-lead { font-size:.9rem; }
+}
+
+/* Undgå horisontal scrollbar hvis du bruger 100vw trick */
+html, body { overflow-x: hidden; }
+
 /* Main grid (two columns) */
 .main-grid{
   display:grid;
