@@ -1,71 +1,101 @@
-<!doctype html>
-<html lang="da">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Alfreds Konfirmation</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Grundlæggende indstillinger */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f1ea; /* En let "rustik" creme-farve */
+  color: #333;
+}
 
-  <figure class="hero">
-    <img class="hero-img" src="images/alfred.JPG" alt="Alfred">
-    <div class="hero-content">
-      <div class="brand-wrap">
-        <h1 class="hero-title">Alfreds Konfirmation</h1>
-        <p class="hero-lead">11. april 2026 — Vi glæder os til at fejre sammen</p>
-      </div>
-    </div>
-  </figure>
+/* HERO SEKTION - Det her styrer toppen */
+.hero-header {
+  position: relative;
+  width: 100%;
+  height: 450px; /* Højden på dit billede i toppen */
+  overflow: hidden;
+}
 
-  <main class="container">
-    <div class="main-grid">
-      
-      <section class="card">
-        <h2>Kirkeservice</h2>
-        <div class="event-grid">
-          <article class="event-row">
-            <div class="event-time">
-              <span class="time-badge">Kl. 10:00</span>
-            </div>
-            <div class="event-details">
-              <p class="meta">Alle er velkomne i kirken.</p>
-              <p class="venue">Haslev Kirke — Kirkepladsen 8B, 4690 Haslev</p>
-            </div>
-          </article>
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* VIGTIG: Gør at billedet ikke bliver mast */
+  object-position: center 20%; /* Justerer hvor billedet fokuserer */
+}
 
-          <article class="event-row">
-            <div class="event-time">
-              <span class="time-badge">Kl. 13:30</span>
-            </div>
-            <div class="event-details">
-              <h3>Frokost & fest</h3>
-              <p class="meta">Langager – "Stalden".</p>
-              <p class="small">Tema: rustikt genbrug — buffet & langborde</p>
-            </div>
-          </article>
-        </div>
-      </section>
+.hero-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7)); /* Gør tekst læsbar */
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
 
-      <aside class="card side">
-        <h2>S.U.</h2>
-        <p class="meta">Senest 1. april 2026.</p>
-        <a class="btn-primary" href="mailto:jacobschultz76@hotmail.com">Giv besked via mail</a>
-        <hr class="divider">
-        <h3>Ønsker</h3>
-        <a href="#" class="wishlist-link">Se listen her</a>
-      </aside>
+/* LAYOUT GRID */
+.main-container {
+  max-width: 1100px;
+  margin: -40px auto 40px; /* Trækker indholdet lidt op over hero'en */
+  padding: 0 20px;
+  position: relative;
+}
 
-    </div>
+.layout-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Standard: 1 kolonne (mobil) */
+  gap: 20px;
+}
 
-    <section class="bottom-image">
-      <img src="images/alfred2.JPG" alt="Alfred" class="bottom-img">
-    </section>
-  </main>
+@media (min-width: 800px) {
+  .layout-grid {
+    grid-template-columns: 2fr 1fr; /* Computer: 2 kolonner */
+  }
+}
 
-  <footer style="text-align: center; padding: 2rem; color: var(--muted);">
-    Vi glæder os til at fejre dagen med jer!
-  </footer>
+/* KORT DESIGN */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
 
-</body>
-</html>
+.time-badge {
+  background: #6b705c; /* Rustik grøn */
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  display: block;
+  text-align: center;
+  background: #a98467; /* Brunlig rustik tone */
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #6b705c;
+}
+
+.event-row {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-style: italic;
+}
