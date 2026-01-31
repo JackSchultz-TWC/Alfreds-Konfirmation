@@ -8,105 +8,55 @@
 </head>
 <body>
 
-  <figure class="hero">
+  <header class="hero-header">
     <img class="hero-img" src="images/alfred.JPG" alt="Alfred">
-    <div class="hero-content">
-      <div class="brand-wrap">
-        <h1 class="hero-title">Alfreds Konfirmation</h1>
-        <p class="hero-lead">11. april 2026 — Vi glæder os til at fejre sammen</p>
-      </div>
+    <div class="hero-text">
+      <h1 class="hero-title">Alfreds Konfirmation</h1>
+      <p class="hero-lead">11. april 2026 — Vi glæder os til at fejre sammen</p>
     </div>
-  </figure>
-
-  <main class="container">
-    <div class="main-grid">
-      
-      <section class="card">
-        <h2>Kirkeservice</h2>
-        <div class="event-grid">
-          <article class="event-row">
-            <div class="event-time">
-              <span class="time-badge">Kl. 10:00</span>
-            </div>
-            <div class="event-details">
-              <p class="meta">Alle er velkomne i kirken.</p>
-              <p class="venue">Haslev Kirke — Kirkepladsen 8B, 4690 Haslev</p>
-            </div>
-          </article>
-
-          <article class="event-row">
-            <div class="event-time">
-              <span class="time-badge">Kl. 13:30</span>
-            </div>
-            <div class="event-details">
-              <h3>Frokost & fest</h3>
-              <p class="meta">Langager – "Stalden".</p>
-              <p class="small">Tema: rustikt genbrug — buffet & langborde</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <aside class="card side">
-        <h2>S.U.</h2>
-        <p class="meta">Senest 1. april 2026.</p>
-        <a class="btn-primary" href="mailto:jacobschultz76@hotmail.com">Giv besked via mail</a>
-        <hr class="divider">
-        <h3>Ønsker</h3>
-        <a href="#" class="wishlist-link">Se listen her</a>
-      </aside>
-
-    </div>
-
-    <section class="bottom-image">
-      <img src="images/alfred2.JPG" alt="Alfred" class="bottom-img">
-    </section>
-  </main>
-
-  <footer style="text-align: center; padding: 2rem; color: var(--muted);">
-    Vi glæder os til at fejre dagen med jer!
-  </footer>
-
-</body>
-</html>
+  </header>
 
   <main class="main-container">
     <div class="layout-grid">
       
-      <section class="card main-content">
+      <section class="card">
         <h2>Kirkeservice & Fest</h2>
         
-        <div class="event-row">
-          <div class="time-badge">Kl. 10:00</div>
-          <div class="details">
+        <article class="event-row">
+          <div class="event-time">
+            <span class="time-badge">Kl. 10:00</span>
+          </div>
+          <div class="event-details">
             <p><strong>Haslev Kirke</strong> — Kirkepladsen 8B, 4690 Haslev</p>
             <p class="small">Alle er velkomne i kirken, men man kan også komme direkte til festen.</p>
           </div>
-        </div>
+        </article>
 
-        <div class="event-row">
-          <div class="time-badge">Kl. 13:30</div>
-          <div class="details">
+        <article class="event-row">
+          <div class="event-time">
+            <span class="time-badge">Kl. 13:30</span>
+          </div>
+          <div class="event-details">
             <h3>Frokost & fest</h3>
             <p><strong>Langager – "Stalden"</strong></p>
             <p class="small">Tema: Rustikt genbrug & langborde. Husk (varmt) tøj til årstiden.</p>
           </div>
-        </div>
+        </article>
       </section>
 
-      <aside class="card sidebar">
+      <aside class="card side">
         <h3>Giv besked</h3>
-        <p class="small">Senest 1. april 2026</p>
+        <p class="small">Vi sætter pris på besked senest 1. april 2026.</p>
         <a class="btn-primary" href="mailto:jacobschultz76@hotmail.com?subject=RSVP%20Alfreds%20Konfirmation">Tilmeld via mail</a>
         
-        <hr>
+        <hr class="divider">
         
         <h3>Ønskeliste</h3>
-        <a href="#" class="wish-link">Se Alfreds ønsker her (kommer snart)</a>
+        <a href="#" class="wishlist-link">Se Alfreds ønsker her (kommer snart)</a>
         
-        <hr>
+        <hr class="divider">
         
-        <p class="contact-info">
+        <p class="small">
           <strong>Kontakt:</strong><br>
           Maja: 23 29 40 84<br>
           <a href="mailto:jacobschultz76@hotmail.com">jacobschultz76@hotmail.com</a>
@@ -114,10 +64,14 @@
       </aside>
       
     </div>
+
+    <section class="bottom-image">
+      <img src="images/alfred2.JPG" alt="Alfred" class="bottom-img">
+    </section>
   </main>
 
   <footer class="site-footer">
-    <p>Vi glæder os til at se jer!</p>
+    <p>Vi glæder os til at fejre dagen med jer!</p>
   </footer>
 
 </body>
