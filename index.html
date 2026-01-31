@@ -7,50 +7,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <div class="site-brand">
-      <h1>Alfreds Konfirmation</h1>
-      <p class="lead">11. april 2026 — Vi glæder os til at fejre sammen</p>
-    </div>
 
-   <figure class="hero" role="img" aria-label="Alfreds Konfirmation — billede">
-  <img class="hero-img" src="images/alfred.JPG" alt="" loading="lazy" width="1600" height="500">
-  <div class="hero-content">
-    <div class="brand-wrap">
-      <h1 class="hero-title">Alfreds Konfirmation</h1>
-      <p class="hero-lead">11. april 2026 — Vi glæder os til at fejre sammen</p>
-    </div>
-  </div>
-</figure>
+  <header class="site-header">
+    <figure class="hero">
+      <img class="hero-img" src="images/alfred.JPG" alt="Alfred">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h1 class="hero-title">Alfreds Konfirmation</h1>
+          <p class="hero-lead">11. april 2026 — Vi glæder os til at fejre sammen</p>
+        </div>
+      </div>
+    </figure>
+  </header>
 
-      <!-- Venstre kolonne: hovedindhold -->
+  <main class="container">
+    <div class="content-grid">
       <section class="card" aria-labelledby="kirkeservice-title">
         <h2 id="kirkeservice-title">Kirkeservice</h2>
-
-        <div class="event-grid" role="list">
-          <article class="event-row" role="listitem" aria-labelledby="event1-title">
-            <div class="event-time" aria-hidden="true">
-              <svg class="icon-clock" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1zm1 6h-2v6l5 3 .9-1.6-4-2.4V7z"/>
-              </svg>
-              <span class="time-badge"><span class="sr-only">Tid:</span>Kl. <strong>10:00</strong></span>
+        <div class="event-grid">
+          <article class="event-row">
+            <div class="event-time">
+              <span class="time-badge">Kl. 10:00</span>
             </div>
-
-            <div class="event-details" id="event1-title">
-              <p class="meta">Alle er velkomne i kirken. Men er også velkommen til at komme til festen direkte.</p>
+            <div class="event-details">
+              <p class="meta">Alle er velkomne i kirken. Man er også velkommen til at komme til festen direkte.</p>
               <p class="venue">Haslev Kirke — Kirkepladsen 8B, 4690 Haslev</p>
             </div>
           </article>
 
-          <article class="event-row" role="listitem" aria-labelledby="event2-title">
-            <div class="event-time" aria-hidden="true">
-              <svg class="icon-clock" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1zm1 6h-2v6l5 3 .9-1.6-4-2.4V7z"/>
-              </svg>
-              <span class="time-badge"><span class="sr-only">Tid:</span>Kl. <strong>13:30</strong></span>
+          <article class="event-row">
+            <div class="event-time">
+              <span class="time-badge">Kl. 13:30</span>
             </div>
-
-            <div class="event-details" id="event2-title">
+            <div class="event-details">
               <h3>Frokost & fest</h3>
               <p class="meta">Langager – "Stalden". Dresscode: (varmt)tøj der matcher årstiden.</p>
               <p class="small">Tematik: rustikt genbrugs‑tema — buffet & langborde</p>
@@ -59,35 +48,27 @@
         </div>
       </section>
 
-      <!-- Højre kolonne: sidekort -->
       <aside class="card side" aria-labelledby="rsvp-title">
-        <h2 id="rsvp-title">Fortæl om du/I kommer</h2>
+        <h2 id="rsvp-title">Fortæl om du kommer</h2>
         <p class="meta">Vi sætter pris på besked senest 1. april 2026.</p>
-
-        <p>
-          <a class="btn-primary" href="mailto:jacobschultz76@hotmail.com?subject=RSVP%20Alfreds%20Konfirmation">Giv besked via mail</a>
-        </p>
-
+        <a class="btn-primary" href="mailto:jacobschultz76@hotmail.com?subject=RSVP%20Alfreds%20Konfirmation">Giv besked via mail</a>
+        
         <hr class="divider">
-
         <h3>Alfreds ønskeliste</h3>
-        <div class="wishlist">
-          <a href="#" class="wishlist-link">Kommer senere</a>
-        </div>
-
+        <p><a href="#" class="wishlist-link">Kommer senere</a></p>
+        
         <hr class="divider">
-
-        <p class="small contact">Kontakt: <a href="mailto:jacobschultz76@hotmail.com">jacobschultz76@hotmail.com</a><br>Tlf.: 23294084 (Maja)</p>
+        <p class="small contact">
+          Kontakt: <a href="mailto:jacobschultz76@hotmail.com">jacobschultz76@hotmail.com</a><br>
+          Tlf.: 23294084 (Maja)
+        </p>
       </aside>
     </div>
   </main>
 
-  <section class="bottom-image" aria-hidden="true">
-    <img src="images/alfred2.JPG" alt="" class="bottom-img" loading="lazy">
-  </section>
-
-  <footer class="site-footer small" role="contentinfo">
+  <footer class="site-footer">
     Vi glæder os til at fejre dagen sammen med dig!
   </footer>
+
 </body>
 </html>
