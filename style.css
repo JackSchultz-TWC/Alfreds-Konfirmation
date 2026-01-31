@@ -1,273 +1,92 @@
-/* Moderne, rustikt layout til "Alfreds Konfirmation" - opdateret til rustikt look
-   Ændret: varmere farver, tekstur, serif headings, og plads til billede nederst.
-*/
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Alfreds Konfirmation</title>
+  <link rel="stylesheet" href="style-improved.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="site-brand">
+      <h1>Alfreds Konfirmation</h1>
+      <p class="lead">11. april 2026 — Vi glæder os til at fejre sammen</p>
+    </div>
 
-/* Variabler — tilpas nemt farver og spacing her */
-:root{
-  --bg: #fbf7f2;
-  --paper: #fff8f2;
-  --muted: #f2ebe5;
-  --accent: #4b2f1f;      /* varme brune */
-  --accent-2: #dacab6;    /* blød baggrundsfarve */
-  --wood: #6b4227;
-  --link: #0b66b3;
-  --text: #2c1b0e;
-  --muted-text: #6b5a51;
-  --radius: 14px;
-  --max-width: 980px;
-  --container-pad: 1.25rem;
-  --shadow: 0 10px 30px rgba(38,30,24,0.07);
-  --glass: rgba(255,255,255,0.6);
-  --gap: 1.25rem;
-  --accent-cta: #9a5b2e;
-  --grain-opacity: 0.02;
-}
+    <figure class="hero" aria-hidden="true">
+      <img class="hero-img" src="images/alfred.JPG" alt="Alfred" width="1200" height="300" loading="lazy">
+      <figcaption class="sr-only">Alfreds Konfirmation — billede</figcaption>
+    </figure>
+  </header>
 
-/* Grund */
-* { box-sizing: border-box; }
-html,body { height:100%; }
-body {
-  margin: 0;
-  /* Bevar sans for brødtekst, men brug serif til overskrifter */
-  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
-  background:
-    radial-gradient(circle at 10% 10%, rgba(90,62,43,0.02), transparent 15%),
-    linear-gradient(180deg, var(--bg) 0%, #fff 100%);
-  color: var(--text);
-  line-height: 1.55;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  padding-bottom: 3rem;
-  position: relative;
-}
+  <main class="container" id="main">
+    <div class="main-grid">
 
-/* Subtil 'paper grain' pseudo-texture (let) */
-body::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    repeating-linear-gradient(45deg, rgba(0,0,0,var(--grain-opacity)) 0 1px, transparent 1px 12px);
-  opacity: 0.6;
-  mix-blend-mode: overlay;
-}
+      <!-- Venstre kolonne: hovedindhold -->
+      <section class="card" aria-labelledby="kirkeservice-title">
+        <h2 id="kirkeservice-title">Kirkeservice</h2>
 
-/* Konteiner */
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 1rem var(--container-pad);
-}
+        <div class="event-grid" role="list">
+          <article class="event-row" role="listitem" aria-labelledby="event1-title">
+            <div class="event-time" aria-hidden="true">
+              <svg class="icon-clock" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1zm1 6h-2v6l5 3 .9-1.6-4-2.4V7z"/>
+              </svg>
+              <span class="time-badge"><span class="sr-only">Tid:</span>Kl. <strong>10:00</strong></span>
+            </div>
 
-/* Header / hero */
-header.site-header {
-  background: linear-gradient(180deg, var(--accent-2) 0%, rgba(218,202,182,0.96) 100%);
-  color: var(--text);
-  padding: 2.25rem 1rem;
-  border-bottom-left-radius: calc(var(--radius) + 2px);
-  border-bottom-right-radius: calc(var(--radius) + 2px);
-  box-shadow: var(--shadow);
-  margin: 1.25rem;
-  border: 1px solid rgba(90,62,43,0.04);
-}
-header .site-brand {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-  align-items: center;
-}
+            <div class="event-details" id="event1-title">
+              <p class="meta">Alle er velkomne i kirken. Men er også velkommen til at komme til festen direkte.</p>
+              <p class="venue">Haslev Kirke — Kirkepladsen 8B, 4690 Haslev</p>
+            </div>
+          </article>
 
-/* Brug serif til headings for rustikt præg (hvis du vil, importér Playfair/Libre Baskerville) */
-header h1, .card h2 {
-  font-family: "Playfair Display", "Libre Baskerville", Georgia, serif;
-  font-weight: 600;
-  color: var(--accent);
-  margin: 0;
-  letter-spacing: -0.02em;
-}
-header h1 {
-  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
-}
-header p.lead {
-  margin: 0;
-  color: var(--muted-text);
-  font-size: 1rem;
-}
+          <article class="event-row" role="listitem" aria-labelledby="event2-title">
+            <div class="event-time" aria-hidden="true">
+              <svg class="icon-clock" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1zm1 6h-2v6l5 3 .9-1.6-4-2.4V7z"/>
+              </svg>
+              <span class="time-badge"><span class="sr-only">Tid:</span>Kl. <strong>13:30</strong></span>
+            </div>
 
-/* Grid til hovedindhold: kort layout */
-.main-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--gap);
-  max-width: var(--max-width);
-  margin: 1.5rem auto;
-  padding: 0 1rem;
-}
+            <div class="event-details" id="event2-title">
+              <h3>Frokost & fest</h3>
+              <p class="meta">Langager – "Stalden". Dresscode: (varmt)tøj der matcher årstiden.</p>
+              <p class="small">Tematik: rustikt genbrugs‑tema — buffet & langborde</p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-/* Kort */
-.card {
-  position: relative;
-  background: linear-gradient(180deg, var(--paper), #fff);
-  border-radius: var(--radius);
-  padding: 1.25rem;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(20,15,10,0.03);
-  overflow: hidden;
-}
+      <!-- Højre kolonne: sidekort -->
+      <aside class="card side" aria-labelledby="rsvp-title">
+        <h2 id="rsvp-title">Fortæl om du/I kommer</h2>
+        <p class="meta">Vi sætter pris på besked senest 1. april 2026.</p>
 
-/* Accent-streg til venstre på kort (rustikt plankebånd) */
-.card::before{
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 6px;
-  background: linear-gradient(180deg, rgba(107,66,39,0.95), rgba(154,91,46,0.85));
-  border-top-left-radius: var(--radius);
-  border-bottom-left-radius: var(--radius);
-  box-shadow: 2px 0 8px rgba(90,62,43,0.04);
-  transform: translateX(-1px);
-}
-.card h2 {
-  margin: 0 0 .5rem 0;
-  color: var(--accent);
-  font-size: 1.15rem;
-}
-.card p, .card .meta {
-  color: var(--muted-text);
-  margin: 0.25rem 0;
-}
+        <p>
+          <a class="btn-primary" href="mailto:jacobschultz76@hotmail.com?subject=RSVP%20Alfreds%20Konfirmation">Giv besked via mail</a>
+        </p>
 
-/* Layout for eventdetaljer */
-.event-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: .75rem;
-}
-.event-row {
-  display: flex;
-  gap: .75rem;
-  align-items: center;
-}
-.event-time {
-  min-width: 98px;
-  background: linear-gradient(180deg, rgba(90,62,43,0.06), rgba(90,62,43,0.03));
-  color: var(--accent);
-  border-radius: 8px;
-  padding: .6rem .5rem;
-  font-weight: 700;
-  text-align: center;
-  font-size: .95rem;
-  box-shadow: inset 0 -6px 10px rgba(255,255,255,0.35);
-}
-.event-details {
-  flex: 1;
-}
+        <hr class="divider">
 
-/* RSVP knap */
-.btn {
-  display: inline-block;
-  padding: .6rem 1rem;
-  border-radius: 10px;
-  font-weight: 700;
-  text-decoration: none;
-  color: white;
-  background: linear-gradient(180deg, var(--accent-cta), #7d4a2a);
-  box-shadow: 0 12px 26px rgba(122,68,38,0.18);
-  border: none;
-  cursor: pointer;
-}
-.btn:focus { outline: 3px solid rgba(154,91,46,0.18); outline-offset: 2px; }
-.btn.secondary {
-  background: transparent;
-  color: var(--accent);
-  border: 1px solid rgba(90,62,43,0.12);
-  box-shadow: none;
-}
+        <h3>Alfreds ønskeliste</h3>
+        <div class="wishlist">
+          <a href="#" class="wishlist-link">Kommer senere</a>
+        </div>
 
-/* Badge / tid-box - mere 'rå' kant, tekstur */
-.badge {
-  background: linear-gradient(180deg, rgba(238,232,224,0.9), rgba(228,220,210,0.95));
-  padding: .4rem .6rem;
-  border-radius: 8px;
-  font-weight: 700;
-  color: var(--accent);
-  box-shadow: 0 6px 18px rgba(38,30,24,0.04);
-}
+        <hr class="divider">
 
-/* Liste / ønskeliste */
-.wishlist {
-  display: flex;
-  gap: .75rem;
-  flex-wrap: wrap;
-}
-.wishlist a {
-  background: var(--muted);
-  color: var(--accent);
-  padding: .45rem .65rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: .95rem;
-}
+        <p class="small contact">Kontakt: <a href="mailto:jacobschultz76@hotmail.com">jacobschultz76@hotmail.com</a><br>Tlf.: 23294084 (Maja)</p>
+      </aside>
+    </div>
+  </main>
 
-/* Divider (dekorativ) */
-.divider {
-  height: 1px;
-  margin: 1rem 0;
-  background: linear-gradient(90deg, transparent, rgba(90,62,43,0.06), transparent);
-}
+  <section class="bottom-image" aria-hidden="true">
+    <img src="images/alfred2.JPG" alt="" class="bottom-img" loading="lazy">
+  </section>
 
-/* Footer */
-footer.site-footer {
-  margin-top: 2rem;
-  padding: 1.25rem;
-  background: linear-gradient(180deg,#fff 0%, var(--muted) 100%);
-  text-align: center;
-  color: var(--muted-text);
-  border-radius: 10px;
-  max-width: var(--max-width);
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid rgba(90,62,43,0.03);
-}
-
-/* Småjusteringer */
-.small { font-size: .9rem; color: var(--muted-text); }
-.meta { font-size: .95rem; color: var(--muted-text); }
-
-/* Plads til et stort billede nederst */
-.bottom-image {
-  margin: 1.5rem auto;
-  max-width: var(--max-width);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: 0 14px 40px rgba(38,30,24,0.12);
-  border: 1px solid rgba(20,15,10,0.03);
-  background: linear-gradient(180deg,#fffaf2 0%, #fff 100%);
-}
-.bottom-image img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  transform-origin: center;
-  transition: transform .5s ease;
-}
-.bottom-image img:hover { transform: scale(1.02); }
-
-/* Responsivt: to-kolonne på større skærme */
-@media (min-width: 820px) {
-  .main-grid { grid-template-columns: 1fr 360px; gap: 1.5rem; }
-  .event-grid { grid-template-columns: 1fr 1fr; }
-}
-
-/* Reducer animation for brugere der foretrækker det */
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
-}
+  <footer class="site-footer small" role="contentinfo">
+    Vi glæder os til at fejre dagen sammen med dig!
+  </footer>
+</body>
+</html>
