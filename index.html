@@ -1,188 +1,71 @@
-/* Moderne, responsivt layout til "Alfreds Konfirmation" */
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Alfreds Konfirmation</title>
+  <!-- Valgfri Google Font:
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="site-brand">
+      <h1>Alfreds Konfirmation</h1>
+      <p class="lead">11. april 2026 — Vi glæder os til at fejre sammen</p>
+    </div>
+  </header>
 
-/* Variabler — tilpas nemt farver og spacing her */
-:root{
-  --bg: #faf8f5;
-  --paper: #fffdf9;
-  --muted: #f1ece6;
-  --accent: #5a3e2b;      /* varme brune */
-  --accent-2: #d9cbb5;    /* blød baggrundsfarve */
-  --link: #0b66b3;
-  --text: #2c1b0e;
-  --muted-text: #6b5a51;
-  --radius: 12px;
-  --max-width: 980px;
-  --container-pad: 1.25rem;
-  --shadow: 0 6px 18px rgba(38,30,24,0.06);
-  --glass: rgba(255,255,255,0.6);
-  --gap: 1.25rem;
-  --accent-cta: #9a5b2e;
-}
+  <main class="container">
+    <div class="main-grid">
+      <!-- Venstre kolonne: hovedindhold -->
+      <section class="card">
+        <h2>Kirkeservice</h2>
+        <div class="event-grid">
+          <div class="event-row">
+            <div class="event-time">Kl. 11:00</div>
+            <div class="event-details">
+              <p class="meta">St. Mikkels Kirke — Kirkepladsen 12, 4690 Haslev</p>
+              <p><a class="small" href="#">Se kort</a></p>
+            </div>
+          </div>
 
-/* Grund */
-* { box-sizing: border-box; }
-html,body { height:100%; }
-body {
-  margin: 0;
-  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
-  background: linear-gradient(180deg, var(--bg) 0%, #fff 100%);
-  color: var(--text);
-  line-height: 1.5;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  padding-bottom: 3rem;
-}
+          <div class="event-row">
+            <div class="event-time">Kl. 14:00</div>
+            <div class="event-details">
+              <h3>Frokost & fest</h3>
+              <p class="meta">Langager – Gildesalen. Dresscode: tøj der matcher årstiden.</p>
+              <p class="small">Tematik: rustikt genbrugs‑tema — buffet & langbord</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-/* Konteiner */
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 1rem var(--container-pad);
-}
+      <!-- Højre kolonne: sidekort -->
+      <aside class="card">
+        <h2>RSVP</h2>
+        <p class="meta">Vi sætter pris på besked senest 1. april 2026.</p>
+        <p><a class="btn" href="mailto:dinmail@eksempel.dk?subject=RSVP%20Alfreds%20Konfirmation">Giv besked via mail</a></p>
 
-/* Header / hero */
-header.site-header {
-  background: linear-gradient(180deg, var(--accent-2) 0%, rgba(217,203,181,0.9) 100%);
-  color: var(--text);
-  padding: 2.25rem 1rem;
-  border-bottom-left-radius: var(--radius);
-  border-bottom-right-radius: var(--radius);
-  box-shadow: var(--shadow);
-  margin: 1.25rem;
-}
-header .site-brand {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-  align-items: center;
-}
-header h1 {
-  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
-  margin: 0;
-  letter-spacing: -0.02em;
-}
-header p.lead {
-  margin: 0;
-  color: var(--muted-text);
-  font-size: 1rem;
-}
+        <hr style="border:none;border-top:1px solid rgba(0,0,0,0.04);margin:1rem 0;">
 
-/* Grid til hovedindhold: kort layout */
-.main-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--gap);
-  max-width: var(--max-width);
-  margin: 1.5rem auto;
-  padding: 0 1rem;
-}
+        <h2>Alfreds ønskeliste</h2>
+        <div class="wishlist">
+          <a href="#">Ønske 1</a>
+          <a href="#">Ønske 2</a>
+          <a href="#">Ønske 3</a>
+        </div>
 
-/* Kort */
-.card {
-  background: var(--paper);
-  border-radius: 12px;
-  padding: 1.25rem;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(20,15,10,0.03);
-}
-.card h2 {
-  margin: 0 0 .5rem 0;
-  color: var(--accent);
-  font-size: 1.15rem;
-}
-.card p, .card .meta {
-  color: var(--muted-text);
-  margin: 0.25rem 0;
-}
+        <hr style="border:none;border-top:1px solid rgba(0,0,0,0.04);margin:1rem 0;">
 
-/* Layout for eventdetaljer */
-.event-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: .75rem;
-}
-.event-row {
-  display: flex;
-  gap: .75rem;
-  align-items: center;
-}
-.event-time {
-  min-width: 98px;
-  background: linear-gradient(180deg, rgba(90,62,43,0.05), rgba(90,62,43,0.03));
-  color: var(--accent);
-  border-radius: 8px;
-  padding: .5rem;
-  font-weight: 600;
-  text-align: center;
-  font-size: .95rem;
-}
-.event-details {
-  flex: 1;
-}
+        <p class="small">Kontakt: dinmail@eksempel.dk | Tlf. 12 34 56 78</p>
+      </aside>
+    </div>
+  </main>
 
-/* RSVP knap */
-.btn {
-  display: inline-block;
-  padding: .6rem 1rem;
-  border-radius: 10px;
-  font-weight: 600;
-  text-decoration: none;
-  color: white;
-  background: linear-gradient(180deg, var(--accent-cta), #7d4a2a);
-  box-shadow: 0 8px 20px rgba(122,68,38,0.18);
-  border: none;
-  cursor: pointer;
-}
-.btn:focus { outline: 3px solid rgba(154,91,46,0.18); outline-offset: 2px; }
-.btn.secondary {
-  background: transparent;
-  color: var(--accent);
-  border: 1px solid rgba(90,62,43,0.12);
-  box-shadow: none;
-}
-
-/* Liste / ønskeliste */
-.wishlist {
-  display: flex;
-  gap: .75rem;
-  flex-wrap: wrap;
-}
-.wishlist a {
-  background: var(--muted);
-  color: var(--accent);
-  padding: .45rem .65rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: .95rem;
-}
-
-/* Footer */
-footer.site-footer {
-  margin-top: 2rem;
-  padding: 1.25rem;
-  background: linear-gradient(180deg,#fff 0%, var(--muted) 100%);
-  text-align: center;
-  color: var(--muted-text);
-  border-radius: 10px;
-  max-width: var(--max-width);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Småjusteringer */
-.small { font-size: .9rem; color: var(--muted-text); }
-.meta { font-size: .95rem; color: var(--muted-text); }
-
-/* Responsivt: to-kolonne på større skærme */
-@media (min-width: 820px) {
-  .main-grid { grid-template-columns: 1fr 360px; gap: 1.5rem; }
-  .event-grid { grid-template-columns: 1fr 1fr; }
-}
-
-/* Reducer animation for brugere der foretrækker det */
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
-}
+  <footer class="site-footer small">
+    Vi glæder os til at fejre dagen sammen med dig!
+  </footer>
+</body>
+</html>
