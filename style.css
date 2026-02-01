@@ -9,46 +9,63 @@ body {
 }
 
 /* HERO SEKTION - Det her styrer toppen */
-.hero-header {
-  position: relative;
+/* HEADER SEKTION - Tekst over billede */
+.header-container {
+  text-align: center;
+  background: #f4f1ea; /* Samme farve som baggrunden, så det blender ind */
+  padding-top: 40px;   /* Luft i toppen */
+}
+
+.header-text {
+  max-width: 800px;
+  margin: 0 auto 30px auto; /* Centreret tekst med 30px luft ned til billedet */
+  padding: 0 20px;
+}
+
+.main-title {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.5rem); /* Lidt større tekst nu hvor den står frit */
+  color: #333;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.lead-text {
+  margin: 10px 0 0 0;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  color: #7d6b63; /* En flot brun nuance der matcher resten */
+  font-weight: 500;
+}
+
+.hero-image-container {
   width: 100%;
-  height: 450px; 
-  overflow: hidden;
-  background: #000;
+  max-width: 1100px; /* Samme bredde som resten af indholdet */
+  margin: 0 auto;    /* Centrer billedet */
+  height: auto;      /* Lad højden tilpasse sig billedet */
+  max-height: 500px; /* Men stop det fra at blive ENORMT på store skærme */
+  overflow: hidden;  /* Skjuler det der stikker ud hvis vi beskærer */
+  border-radius: 12px; /* Runde hjørner på billedet ser lækkert ud her */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* En lille skygge for dybde */
 }
 
 .hero-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
-  object-position: center 20%;
+  object-fit: cover; /* Sikrer at billedet fylder rammen ud */
+  object-position: center 20%; /* Fokuserer stadig på ansigterne */
   display: block;
 }
 
-.hero-text {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.6));
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  text-align: center;
-  z-index: 2;
-}
-
-.hero-title {
-  margin: 0;
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-
-.hero-lead {
-  margin: 10px 0 0 0;
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+/* Mobil-tilpasning specifikt for headeren */
+@media (max-width: 720px){
+  .header-container {
+    padding-top: 20px;
+  }
+  
+  .hero-image-container {
+    max-height: 250px; /* Mindre højde på mobilen så man hurtigt ser indholdet */
+    border-radius: 0;  /* På helt små skærme kan det se godt ud at gå helt til kant */
+  }
 }
 
 /* LAYOUT GRID */
